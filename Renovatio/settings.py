@@ -29,10 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-    'theme',
     'blog',
     'django_summernote',
 ]
+
 
 TAILWIND_APP_NAME = 'theme'
 
