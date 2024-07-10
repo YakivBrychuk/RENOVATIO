@@ -4,6 +4,7 @@ module.exports = {
     './templates/**/*.html',
     './static/**/*.js',
     './static/**/*.css',
+    '/tailwind.css',
   ],
   theme: {
     extend: {},
