@@ -15,8 +15,9 @@
                             <p class="text-gray-600">Author: {{ post.author }}</p>
                         </div>
                     </div>
-                    <a href="#" class="block mt-2">
+                    <a href="{% url 'post_detail' post.slug %}" class="block mt-2">
                         <h2 class="text-xl font-semibold text-gray-800">{{ post.title }}</h2>
+                        <p class="mt-2 text-gray-600">{{ post.excerpt }}</p>
                     </a>
                     <hr class="my-2" />
                     <p class="text-gray-500 text-sm">{{ post.created_on|date:"F j, Y" }}</p>
@@ -33,7 +34,9 @@
     <nav aria-label="Page navigation" class="mt-6">
         <ul class="pagination flex justify-center space-x-2">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 bg-gray-200 rounded-lg">« PREVIOUS</a></li>
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 bg-gray-200 rounded-lg">« PREVIOUS</a>
+            </li>
             {% endif %}
             {% for num in page_obj.paginator.page_range %}
             {% if page_obj.number == num %}
