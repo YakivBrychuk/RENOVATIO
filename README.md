@@ -1,1 +1,2 @@
-# MyBlog
+# RENOVATIO
+RENOVATIO is a dynamic blog focused on personal growth and renewal. Utilizing Django, JavaScript, CSS, and HTML, RENOVATIO offers a platform for individuals to explore self-improvement, wellness, and transformation. This project, part of the Code Institute Diploma in Software Development with eCommerce, allows users to engage with content that inspires and supports their journey towards a better self. On RENOVATIO, users can read, share, and comment on articles, and connect with a like-minded community committed to lifelong growth.
