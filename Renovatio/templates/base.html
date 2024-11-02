@@ -15,6 +15,9 @@
             <div>
                 <a href="{% url 'home' %}" class="ml-4 text-gray-700 hover:text-gray-900 {% if request.path == home_url %}font-bold{% endif %}">Home</a>
             </div>
+            <div>
+                <a href="{% url 'about' %}" class="ml-4 text-gray-700 hover:text-gray-900 {% if request.path == about_url %}font-bold{% endif %}">About</a>
+            </div>
         </div>
     </nav>
     <main class="flex-grow container mx-auto px-4 py-8">
