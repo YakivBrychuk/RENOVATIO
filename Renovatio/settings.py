@@ -13,7 +13,7 @@ NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     ".herokuapp.com",
