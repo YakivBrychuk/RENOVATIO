@@ -126,8 +126,6 @@ rich==13.7.1
 rpm==4.19.1.1
 rsa==4.9
 s3transfer==0.10.3
-selinux @ file:///builddir/build/BUILD/libselinux-3.7/src
-sepolicy @ file:///builddir/build/BUILD/selinux-3.7/python/sepolicy
 setools==4.5.1
 setuptools==70.1.1
 simpleaudio==1.0.4
