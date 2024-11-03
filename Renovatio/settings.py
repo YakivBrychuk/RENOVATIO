@@ -13,7 +13,7 @@ NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     ".herokuapp.com",
@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'tailwind',
     'blog',
     'django_summernote',
     'about',
