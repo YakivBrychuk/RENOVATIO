@@ -1,28 +1,28 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 
-<div class="bg-white py-10">
-    <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="text-3xl font-bold">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="text-gray-600">{{ post.author }} | {{ post.created_on }}</p>
+<div class="bg-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <!-- Post title -->
+                <h1 class="display-5 fw-bold">{{ post.title }}</h1>
+                <!-- Post author and date -->
+                <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-            <div class="masthead-image hidden md:block">
-                <img src="{% static 'images/renovatio1.jpg' %}" style="max-width: 400px; max-height: 400px;" alt="placeholder">
+            <div class="col-md-6 text-center d-none d-md-block">
+                <img src="{% static 'images/renovatio1.jpg' %}" class="img-fluid" style="max-width: 400px; max-height: 400px;" alt="placeholder">
             </div>
         </div>
     </div>
 </div>
 
-<div class="container mx-auto my-8">
-    <div class="card bg-white shadow-lg rounded-lg p-6">
+<div class="container my-5">
+    <div class="card shadow-lg">
         <div class="card-body">
-            <!-- The post content goes inside the card-text. -->
-            <!-- Use the | safe filter inside the template tags -->
-            <p class="text-gray-800">
+            <!-- Post content -->
+            <p class="card-text text-dark">
                 {{ post.content | safe }}
             </p>
         </div>
