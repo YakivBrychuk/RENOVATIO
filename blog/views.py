@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
+from .forms import CommentForm
 
 # List view for posts
 class PostList(generic.ListView):
@@ -33,6 +34,7 @@ def post_detail(request, slug):
     # Retrieve and order comments, count approved comments
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+    comment_form = CommentForm()
 
     return render(
         request,
@@ -41,5 +43,7 @@ def post_detail(request, slug):
             "post": post,
             "comments": comments,
             "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
+    
