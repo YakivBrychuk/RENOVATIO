@@ -7,7 +7,7 @@ if os.path.isfile('env.py'):
     import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'Renovatio', 'templates')
+TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 

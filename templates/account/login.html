@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load account socialaccount %}
+{% load i18n %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -9,7 +10,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3>{% trans "Login" %}</h3>
             <p>
                 {% blocktrans %}Welcome back to RENOVATIO. To interact with our community by leaving comments or liking posts, please log in. If you haven't created an account yet, <a class="link" href="{{ signup_url }}">sign up</a> to join us.{% endblocktrans %}
             </p>
