@@ -10,21 +10,35 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h3>{% trans "Sign Up" %}</h3>
-            <p>
-                {% blocktrans %}Welcome back to the code|star blog. Do you already have an account? Then please <a class="link" href="{{ login_url }}">LOGIN</a> instead.{% endblocktrans %}
+            <h3 style="color: #020C22; font-weight: bold;">{% trans "Sign Up" %}</h3>
+            <p style="color: #333;">
+                {% blocktrans %}
+                Welcome back to RENOVATIO. Do you already have an account? Then please 
+                <a class="link" href="{{ login_url }}" 
+                   style="color: #020C22 ; text-decoration: none; font-weight: bold; transition: all 0.3s ease;" 
+                   onmouseover="this.style.color='#00FF76'; this.style.textShadow='0 0 0 #00FF76';" 
+                   onmouseout="this.style.color='#020C22'; this.style.textShadow='none';">
+                   LOGIN
+                </a> instead.
+                {% endblocktrans %}
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+            <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}" 
+                  style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-primary w-100 mt-3" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                <button class="btn w-100 mt-3" type="submit" 
+                        style="color: white; background-color: #020C22; transition: all 0.3s ease; text-decoration: none; padding: 10px; border-radius: 5px; border: none; font-weight: bold;"
+                        onmouseover="this.style.color='#00FF76'; this.style.textShadow='0 0 8px #00FF76, 0 0 15px #00FF76';" 
+                        onmouseout="this.style.color='white'; this.style.textShadow='none';">
+                    {% trans "Sign Up" %} &raquo;
+                </button>
             </form>
         </div>
     </div>
