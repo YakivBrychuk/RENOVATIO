@@ -1,5 +1,16 @@
-.hover-shadow:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Bigger shadow */
-    transform: scale(1.1); /* Larger scale */
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smoother, slower transition */
+/* Custom checkbox styling */
+input[type="checkbox"]:checked {
+    accent-color: #00FF76; /* Custom color for the checkbox */
 }
+
+/* Optional: Additional global styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Remove the original Bootstrap focus style */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+
+}
+
