@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
+from django.contrib.auth.models import User
 
 
 
@@ -53,3 +54,8 @@ def post_detail(request, slug):
             "comment_form": comment_form
         },
     )
+
+
+def profile_page(request):
+    user = get_object_or_404(User, user=request.user)
+    comments = user.commenter.all()
