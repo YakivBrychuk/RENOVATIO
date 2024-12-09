@@ -82,20 +82,36 @@
   </nav>
 </nav>
 
-<!-- displaying Django messages -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% for message in messages %}
-      <div class="alert {{ message.tags }} alert-dismissible
-        fade show" id="msg" role="alert">
-        {{ message | safe }}
-        <button type="button" class="btn-close"
-          data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endfor %}
+<!-- Displaying Django Messages -->
+<div 
+  class="position-fixed" 
+  style="top: 65px; right: 10px; z-index: 1050; max-width: 400px; width: auto;">
+  {% for message in messages %}
+  <div 
+    class="alert alert-dismissible fade show d-flex align-items-start" 
+    id="msg{{ forloop.counter }}" 
+    role="alert" 
+    style="background: rgba(2, 12, 34, 0.9); color: #00FF76; padding: 15px; border-radius: 8px; font-size: 1rem; border: 1px solid #00FF76; box-shadow: 0 4px 8px rgba(0, 255, 118, 0.4);">
+    <!-- Icon -->
+    <div style="margin-right: 15px; font-size: 1.5rem; color: #00FF76;">
+      <i class="fas fa-info-circle"></i>
     </div>
+    <!-- Message Content -->
+    <div>
+      <strong style="font-weight: 600;">{{ message.tags|capfirst }}:</strong>
+      <p style="margin: 0;">{{ message|safe }}</p>
+    </div>
+    <!-- Close Button -->
+    <button 
+      type="button" 
+      class="btn-close ms-auto" 
+      data-bs-dismiss="alert" 
+      aria-label="Close" 
+      style="position: relative; top: -8px; color: #00FF76; font-size: 1.2rem; background: none; border: none; cursor: pointer;">
+      &times;
+    </button>
   </div>
+  {% endfor %}
 </div>
 
     <!-- Main Content -->
