@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
+
 {% block content %}
 {% load static %}
 <div class="container mt-5">
-    <div class="row">
+    <div class="row align-items-center">
+        {% if about.image %}
         <div class="col-4 text-center">
-            <img src="" width="75%">
+            <img src="{{ about.image.url }}" class="img-fluid rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" width="75%" alt="About Image">
         </div>
+        {% endif %}
         <div class="col-8">
-            <h2>{{ about.title }}</h2>
-            {{ about.content | safe }}
+            <h2 style="color: #020C22; font-weight: bold;">{{ about.title }}</h2>
+            <p style="color: #333;">
+                {{ about.content | safe }}
+            </p>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-right">
-          <!-- Updated on field goes in here -->
-    
-          <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+    <div class="row mt-4">
+        <div class="col text-end">
+            <p class="text-end" style="color: #666;"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
-      </div>    
+    </div>    
 </div>
 {% endblock content %}
