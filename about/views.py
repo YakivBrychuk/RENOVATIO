@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import About
-# from .forms import CollaborateForm
-# Create your views here.
+from .forms import CollaborateForm
+
 
 
 def about_view(request):
@@ -23,3 +23,4 @@ def about_view(request):
         "about/about.html",
         {"about": about, "collaborate_form": collaborate_form},
     )
+
