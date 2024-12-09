@@ -32,6 +32,8 @@
         <div class="col-12">
             <strong style="color: #333;">
                 <i class="far fa-comments"></i> {{ comment_count }} Comments
+                <!-- Toggle button for collapse -->
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#commentsSection" aria-expanded="false" aria-controls="commentsSection" style="color: white; background-color: #020C22; transition: all 0.3s ease; text-decoration: none; padding: 10px; border-radius: 5px; border: none; font-weight: bold;" onmouseover="this.style.color='#00FF76'; this.style.textShadow='0 0 8px #00FF76, 0 0 15px #00FF76';" onmouseout="this.style.color='white'; this.style.textShadow='none';">Comments</button>
             </strong>
         </div>
         <div class="col-12">
@@ -39,8 +41,8 @@
         </div>
     </div>
 
-    <!-- Displaying Comments -->
-    <div class="row">
+    <!-- Displaying Comments (collapse section) -->
+    <div class="row collapse" id="commentsSection">
         <div class="col-md-8 card mb-4 mt-3" style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #020C22; font-weight: bold;">Comments:</h3>
             <div class="card-body">
@@ -83,4 +85,5 @@
         </div>
     </div>
 </div>
+
 {% endblock content %}
