@@ -5,17 +5,17 @@ from .forms import CollaborateForm
 
 
 
-def about_view(request):
-    if request.method == "POST" and 'collaborate_form' in globals():
+def about_me(request):
+    if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
         if collaborate_form.is_valid():
             collaborate_form.save()
             messages.success(
                 request,
-                'Collaboration request received! I endeavor to respond within 2 working days.'
+                'Collaboration request received! I endeavor to respond within 3 working days.'
             )
     else:
-        collaborate_form = CollaborateForm() if 'CollaborateForm' in globals() else None
+        collaborate_form = CollaborateForm()
 
     about = About.objects.all().order_by('-updated_on').first()
     return render(
