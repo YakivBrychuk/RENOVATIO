@@ -14,3 +14,27 @@ input:focus, textarea:focus, select:focus {
 
 }
 
+
+/* Clock Time */
+
+#clock {
+    display: inline-block;
+    letter-spacing: 2px;
+  }
+  
+  .no-dots {
+    
+    font-weight: bold;
+    color: inherit; /* Inherit the same color as the rest of the text */
+  }
+  
+
+/* Apply this style for screens larger than 768px (most tablets and up) */
+@media (min-width: 768px) {
+    #navbarNav {
+        display: flex;
+        flex-basis: auto;
+        flex-grow: 0;
+        align-items: center;
+    }
+}
