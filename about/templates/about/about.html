@@ -6,11 +6,19 @@
 
 <div class="container mt-5">
     <div class="row align-items-center">
-        {% if about.image %}
-        <div class="col-4 text-center">
-            <img src="{{ about.image.url }}" class="img-fluid rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" width="75%" alt="About Image">
+        <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+            {% if "placeholder" in about.profile_image.url %}
+            <img src="{% static 'images/renovatio1.jpg' %}" 
+                 class="img-fluid profile-image" 
+                 alt="{{ about.title }}" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;">
+            {% else %}
+            <img src="{{ about.profile_image.url }}" 
+                 class="img-fluid profile-image" 
+                 alt="{{ about.title }}" 
+                 style="max-width: 100%; height: auto; border-radius: 10px;">
+            {% endif %}
         </div>
-        {% endif %}
         <div class="col-8">
             <h2 style="color: #020C22; font-weight: bold;">{{ about.title }}</h2>
             <p style="color: #333;">

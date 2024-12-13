@@ -5,6 +5,10 @@ import dj_database_url
 
 if os.path.isfile('env.py'):
     import env
+    print("env.py loaded successfully")
+else:
+    print("env.py not found")
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
@@ -136,3 +140,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Cloudinary settings
+
+cloudinary_url = os.getenv('CLOUDINARY_URL', '')
+
+if cloudinary_url:
+    url_parts = cloudinary_url.split('@')
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': url_parts[-1],
+        'API_KEY': cloudinary_url.split('//')[1].split(':')[0],
+        'API_SECRET': cloudinary_url.split(':')[2].split('@')[0],
+    }
+else:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': 'your-default-cloud-name',
+        'API_KEY': 'your-default-api-key',
+        'API_SECRET': 'your-default-api-secret',
+    }
