@@ -5,9 +5,7 @@ import dj_database_url
 
 if os.path.isfile('env.py'):
     import env
-    print("env.py loaded successfully")
-else:
-    print("env.py not found")
+
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,9 +43,6 @@ INSTALLED_APPS = [
     'about',
 ]
 
-
-TAILWIND_APP_NAME = 'theme'
-
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -64,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
 
@@ -89,13 +83,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Renovatio.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': dj_database_url.parse(config('DATABASE_URL', default='sqlite:///db.sqlite3'))
 }
-
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
+    "http://127.0.0.1",
+    "http://localhost",
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -127,10 +122,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -144,18 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary settings
 
-cloudinary_url = os.getenv('CLOUDINARY_URL', '')
-
-if cloudinary_url:
-    url_parts = cloudinary_url.split('@')
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': url_parts[-1],
-        'API_KEY': cloudinary_url.split('//')[1].split(':')[0],
-        'API_SECRET': cloudinary_url.split(':')[2].split('@')[0],
-    }
-else:
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': 'your-default-cloud-name',
-        'API_KEY': 'your-default-api-key',
-        'API_SECRET': 'your-default-api-secret',
-    }
+CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
