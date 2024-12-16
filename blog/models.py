@@ -2,9 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+# Choices for post status
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
+# Model to store blog posts
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -26,7 +27,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} | written by {self.author}"
 
-# Comment model for posts
+# Model to store comments on posts
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
