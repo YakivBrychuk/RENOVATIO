@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic
+from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
@@ -100,3 +100,24 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+
+
+class PostLike(View):
+    """
+    This class handles the like functionality for posts.
+    If the user has already liked the post, it removes the like;
+    otherwise, it adds a like to the post.
+    """
+
+    def post(self, request, slug, *args, **kwargs):
+        """
+        Handles the POST request for liking/unliking a post.
+        """
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))

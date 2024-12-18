@@ -8,18 +8,20 @@
         <div class="col-md-6">
             <!-- Post title -->
             <h1 style="color: #020C22; font-weight: bold;">{{ post.title }}</h1>
-            <!-- Post author and date -->
-            <p style="color: #333;">{{ post.author }} | {{ post.created_on }}</p>
+            
         </div>
-        <div class="col-md-6 text-center d-none d-md-block">
-            {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top" src="{% static 'images/renovatio1.jpg' %}"
-                         alt="placeholder image" style="width: 100%; height: 100%; object-fit: cover;">
-                    {% else %}
-                    <img class="card-img-top" src="{{ post.featured_image.url }}"
-                         alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
-                    {% endif %}
-        </div>
+        <div class="col-md-6 text-center">
+            <!-- Image Container -->
+            <div class="image-container" style="overflow: hidden;">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="img-fluid" src="{% static 'images/renovatio1.jpg' %}" 
+                     alt="placeholder image" style="object-fit: cover; width: 100%; max-height: 300px;">
+                {% else %}
+                <img class="img-fluid" src="{{ post.featured_image.url }}" 
+                     alt="{{ post.title }}" style="object-fit: cover; width: 100%; max-height: 300px;">
+                {% endif %}
+            </div>
+        </div>        
     </div>
 </div>
 
@@ -30,22 +32,50 @@
             <p style="color: #020C22;">{{ post.content | safe }}</p>
         </div>
     </div>
+    <!-- Post author and date -->
+    <p class="d-flex justify-content-end" style="color: #333;">{{ post.author }} | {{ post.created_on }}</p>
 </div>
 
-<!-- Displaying count of comments -->
-<div class="container my-5">
-    <div class="row">
-        <div class="col-12">
+    <!-- Like and Comment Section -->
+<div class="container my-3">
+    <div class="d-flex align-items-center justify-content-around gap-3">
+        <!-- Comments Section -->
+        <div class="d-flex align-items-center">
             <strong style="color: #333;">
                 <i class="far fa-comments"></i> {{ comment_count }} Comments
                 <!-- Toggle button for collapse -->
-                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#commentsSection" aria-expanded="false" aria-controls="commentsSection" style="color: white; background-color: #020C22; transition: all 0.3s ease; text-decoration: none; padding: 10px; border-radius: 5px; border: none; font-weight: bold;" onmouseover="this.style.color='#00FF76'; this.style.textShadow='0 0 8px #00FF76, 0 0 15px #00FF76';" onmouseout="this.style.color='white'; this.style.textShadow='none';">Comments</button>
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#commentsSection" aria-expanded="false" aria-controls="commentsSection"
+                    style="color: white; background-color: #020C22; transition: all 0.3s ease; text-decoration: none; padding: 10px; border-radius: 5px; border: none; font-weight: bold;"
+                    onmouseover="this.style.color='#00FF76'; this.style.textShadow='0 0 8px #00FF76, 0 0 15px #00FF76';"
+                    onmouseout="this.style.color='white'; this.style.textShadow='none';">
+                    Comments
+                </button>
             </strong>
         </div>
-        <div class="col-12">
-            <hr>
+
+        <!-- Like Section -->
+        {% if user.is_authenticated %}
+        <div class="d-flex align-items-start">
+            <form action="{% url 'post_like' post.slug %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button id="likeButton" type="submit" style="background-color: transparent; border: none; display: flex; align-items: center;">
+                    <svg id="heartIcon" viewBox="0 0 24 24" width="2em" height="2em" 
+                        fill="{% if liked %}#00FF76{% else %}black{% endif %}"
+                        aria-hidden="true" style="cursor: pointer; ">
+                        <path d="M17.488 1.11h-.146a6.55 6.55 0 0 0-5.35 2.81A6.57 6.57 0 0 0 6.62 1.116 
+                                6.406 6.406 0 0 0 .09 7.428c0 7.672 11.028 15.028 11.497 15.338a.75.75 0 0 0 
+                                .826 0c.47-.31 11.496-7.666 11.496-15.351a6.43 6.43 0 0 0-6.42-6.306"></path>
+                    </svg>
+                </button>
+            </form>
+            <span id="likeCount" style="color: #333; margin-left: 8px; font-weight: bold;">
+                {{ post.number_of_likes }}
+            </span>
         </div>
+        {% endif %}
     </div>
+</div>
+
 
     <!-- Displaying Comments (collapse section) -->
     <div class="row collapse" id="commentsSection">
@@ -129,4 +159,5 @@
 <!-- Include comments.js script -->
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/like_toggle.js' %}"></script>
 {% endblock %}

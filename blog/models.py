@@ -27,6 +27,16 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} | written by {self.author}"
 
+    # Likes field
+    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    
+    def number_of_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+        return self.title
+
+
 # Model to store comments on posts
 class Comment(models.Model):
     post = models.ForeignKey(

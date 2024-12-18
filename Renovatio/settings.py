@@ -1,6 +1,7 @@
 from pathlib import Path
 from decouple import config
 import os
+import sys 
 import dj_database_url
 
 if os.path.isfile('env.py'):
@@ -85,6 +86,9 @@ WSGI_APPLICATION = 'Renovatio.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL', default='sqlite:///db.sqlite3'))
 }
+
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
