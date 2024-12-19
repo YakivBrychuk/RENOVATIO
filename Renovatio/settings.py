@@ -93,6 +93,7 @@ if 'test' in sys.argv:
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com",
+    "renovatio-488178e90e29.herokuapp.com",
     "http://127.0.0.1",
     "http://localhost",
 ]
