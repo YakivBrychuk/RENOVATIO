@@ -105,3 +105,150 @@ Below is the Database structure that this project is based on. There are User, P
 
 <br>
 
+### **WireFrames**
+
+
+<br>
+
+
+...
+
+
+<br>
+
+#### **Font**
+
+I decided to use the default font because it provides a simple and clean look. Most importantly, it ensures consistency across different browsers and is easy to read.
+
+<br>
+
+
+#### **Color**
+
+The color pallette i took inspiration from movie "In Time".
+<br>
+<details><summary>In Time - 2011</summary>
+<img src="assets/readme_content/MOVIE_IN_TIME.png"></details>
+<details><summary>Color palette</summary>
+<img src="/assets/readme_content/Color Palette.png"></details>
+
+<br>
+
+## **Installations**
+
+
+Below are the installations we need before writing any code:
+
+<br>
+
+Install the server to use when deploy on Heroku
+  ```sh
+  pip3 install django gunicorn
+  ```
+
+Supporting libraries:
+  * Postgresql and psycopg2
+  ```sh
+  pip3 install dj_database_url psycopg2
+  ```
+  * to run Cloudinary
+  ```sh
+  pip3 install dj3-cloudinary-storage
+  ```
+  Creat file list:
+  * create requirement.txt
+  ```sh
+  pip3 freeze --local > requirements.txt
+  ```
+  * create new django project
+  ```sh
+  django-admin startproject funginews .
+  ```
+  * create blog app
+  ```sh
+  python3 manage.py startapp blog
+  ```
+
+
+## **Present you blog site**
+
+
+
+By clicking [Renovatio](https://renovatio-488178e90e29.herokuapp.com/) first thing you will see is the landing page. Here you can see the navbar on the top which has links for Home,About Signup & Login.
+
+If you scroll down you will see the articles section with the latest posts, along with info like title, author, a short snippet of the post, date and time when the post was created as well as pagination effect to go to next page of posts.
+
+If you are logged in, you will see posts by clicking on any this will take you to the respective page of the post. If you are not logged in you will <b>Not</b> see comment functionality of adding comments and Likes but you can see comments that were approved by admin.
+
+#### **Desktop**
+
+<details><summary>Not logged in user</summary>
+<img src="/assets/readme_content/NOT_LOGGED.gif">
+</details>
+
+<br>
+
+<details><summary>Logged in user</summary>
+<img src="/assets/readme_content/LOGGEDIN.gif">
+</details>
+
+<br>
+
+#### **Notifications**
+
+<details><summary>Some of the main notifications</summary>
+<img src="/assets/readme_content/Notifications.gif">
+</details>
+
+<br>
+
+#### **Mobile**
+
+<details><summary>Not logged in user</summary>
+<img src="assets/readme_content/Not_Logged_MOBILE.gif">
+</details>
+
+<br>
+
+<details><summary>Logged in user</summary>
+<img src="/assets/readme_content/LOGGED_MOBILE.gif">
+</details>
+
+<br>
+The project naturally evolved throughout the development process, leading me to make changes beyond the original wireframes and incorporate features I hadn’t initially planned. Overall, I’m quite satisfied with how it has turned out.
+
+
+## **Testing & Code Validation**
+
+--->>>
+
+
+## **Tech Stack**
+### **Language**
+
+This project is a Full-Stack site based on business logic used to control a centrally-owned dataset. With the authentication it provide role-based access to the data.
+
+Main programming languages used are:
+
+- **Python**
+- **Django**
+- **HTML**
+- **CSS**
+- **Javascript**
+- **Postgresql**
+- **Psycopg2**
+
+### **Tools**
+- [Github](https://github.com/) for store and version control of the code
+
+- [Gitpod](https://gitpod.io/workspaces) for editing code
+
+- [Heroku](https://heroku.com/) for deployment
+
+- [Lucidchart](https://www.lucidchart.com/pages/) for creating database relationship
+
+- [Cloudinary](https://cloudinary.com) for store the images and css files used in this project
+
+- [imgflip](https://imgflip.com/) for creating gif screenshots
+
+- [GitHub Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/) for generating table of content for README.md file
