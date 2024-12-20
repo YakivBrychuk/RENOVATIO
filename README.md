@@ -1,6 +1,6 @@
 # Welcome to [RENOVATIO](https://renovatio-488178e90e29.herokuapp.com/)
 
-<img src="Renovatio/assets/readme_content/amIresponsiveLandingPage.png" width="800">
+<img src="/assets/readme_content/amIresponsiveLandingPage.png" width="800">
 
 <br>
 
