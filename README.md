@@ -53,4 +53,55 @@ The tasks users can perform depends on their role. On this site, there are admin
 |                  | Manage Collaborate Requests             | Approve/Disapprove comments                    | Yes           |
 |                  | Publish Post                           | Publish blog post                             | Yes           |
 |                  | Edit Post                              | Edit existing blog post                       | Yes           |
-|                  | Delete Post                            | Delete blog post                              |
+|                  | Delete Post                            | Delete blog post                              | Yes           |
+|                  | Manage User Accounts                   | Create/Remove User Accounts                   | Yes           |
+|                  | Edit User Profiles                     | Edit user profiles                            | Yes           |
+|                  | Manage Social Accounts                 | Connect/Disconnect Social Accounts            | Yes           |
+|                  | Manage Email Addresses                 | Add/Remove Email Addresses                    | Yes           |
+|                  | Update Site Settings                   | Configure site settings                       | Yes           |
+|                  | View Site Analytics                    | View site analytics                           | Yes           |
+| First Time User | Know which site is for quickly         | Purpose of the site is clear                  | Yes           |
+|                  | View posts                              | View multiple posts                           | Yes           |
+|                  | Signup for a new account and login     | Signup for new account                        | Yes           |
+|                  | Signup/Login with Google account       | Single signup with Google account             | Yes           |
+|                  | Add View Comments that are approved    | View comments that are approved               | Yes           |
+|                  | Send request to Collaborate            | Send request to Collaborate                    | Yes           |
+| Site User    | View likes on posts                    | View likes                                    | Yes           |
+|                  | View paginated site                    | Paginated site                                | Yes           |
+| Returning User | Comment on posts                       | View comments                                 | Yes           |
+|                  | Add, view, update and delete their own Comments | View/edit/delete comments                     | Yes           |
+|                  | Send Collaboration Request              | Send Collaboration Request                    | Yes           |
+|                  | Like/unlike posts                      | Like/unlike a post                            | Yes           |
+|                  | View full posts                        | View full post                                | Yes           |
+|                  | Update/delete their own comments       | make/edit/delete comments                     | Yes           |
+|                  | Login to my account                    | Login                                         | Yes           |
+|                  | Logout of my account                   | Logout from my account                        | Yes           |
+
+<br>
+
+#### **Logic**
+
+Initially, I envision this project as my personal blog, where I am the only one who can create and manage posts through the admin panel. The primary goal is to maintain full control over the content and ensure the quality and relevance of the posts.
+
+For now:
+
+-   Users who sign in can interact with the blog by **commenting** on posts and **liking** them. These interactions allow for engagement without affecting the integrity of the blog content.
+-   To maintain a clean and focused space, the ability to create posts is restricted solely to me as the admin.
+
+Future development plan:
+
+-   I plan to introduce a **collaboration feature** where users can request to become bloggers. This will be implemented through a form that users can fill out to express their interest in contributing to the blog.
+-   As the admin, I will review these requests and manually approve users I find suitable for collaboration.
+-   Approved users will gain the ability to create posts, but all user-generated posts will still require admin approval before being published to ensure content quality, prevent spam, and maintain the blog's overall focus and professionalism.
+
+By implementing this phased approach, I can gradually scale the blog while maintaining its quality and purpose during its early stages.
+<br>
+
+### **Database Structure**
+
+Below is the Database structure that this project is based on. There are User, Post and Comment tables, you can also see their relationships between each table.
+
+<img src="assets/readme_content/database_structure_renovatio.jpg" width="800">
+
+<br>
+
