@@ -111,9 +111,21 @@ Below is the Database structure that this project is based on. There are User, P
 <br>
 
 
-...
+<details><summary>Mobile</summary>
+<img src="/assets/readme_content/iPhone 16 Pro _WIREFRAME1.png">
+<img src="/assets/readme_content/iPhone 16 Pro _WIREFRAME2.png">
+
+</details>
+<details><summary>Mobile</summary>
+<img src="/assets/readme_content/iPhone 16 Pro _WIREFRAME3.png">
+<img src="/assets/readme_content/iPhone 16 Pro _WIREFRAME4.png">
+</details>
+<br>
 
 
+<details><summary>Desktop</summary>
+<img src="/assets/readme_content/MacBook Pro 14_ WIREFRAME.png">
+</details>
 <br>
 
 #### **Font**
@@ -228,15 +240,15 @@ The project naturally evolved throughout the development process, leading me to 
 
 This project is a Full-Stack site based on business logic used to control a centrally-owned dataset. With the authentication it provide role-based access to the data.
 
-Main programming languages used are:
+### **Languages**
 
-- **Python**
-- **Django**
-- **HTML**
-- **CSS**
-- **Javascript**
-- **Postgresql**
-- **Psycopg2**
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css)
+- [JavaScript](https://pythontutor.com/javascript.html#mode=edit)
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Postgresql](https://www.postgresql.org/)
+- [Psycopg2](https://pypi.org/project/psycopg2/)
 
 ### **Tools**
 - [Github](https://github.com/) for store and version control of the code
@@ -252,3 +264,31 @@ Main programming languages used are:
 - [imgflip](https://imgflip.com/) for creating gif screenshots
 
 - [GitHub Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/) for generating table of content for README.md file
+
+## **Credits**
+
+- Code Institute's [I think therefor I blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/)
+
+- Tutor support from Code Institute for helping me out when I got stuck.
+
+- Fellow students on slack also helped me a lot, is such a amazing community to learn and grow together
+
+- [Stackoverflow](https://stackoverflow.com/) for researching massive amount of things
+
+- Youtube videos for watching people building things with the features I needed, especially the google login part
+
+- Google in general, I can't remember the list of things and webiste I searched
+
+
+## **Acknowledgments**
+
+
+Tutor support at Code Institute. They are always there when I need help, I am really grateful for that.
+
+Fellow students on the Slack community for their help and support, this amazing community constantly inspires me and it feels nice to learn and grow with them together.
+
+
+THANK YOU ALL!!!
+
+
+Disclaimer: I am aware of this readme is not up to standard, there are tons of things I would like to talk about, and have the notes and screenshots. Unfortunately, I m running out of time and had to do it this way. It is also possible that I missed some credit to the source of my code. Please accept my apology.

@@ -6,6 +6,8 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Model to store blog posts
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -29,7 +31,7 @@ class Post(models.Model):
 
     # Likes field
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
-    
+
     def number_of_likes(self):
         return self.likes.count()
 
@@ -48,12 +50,12 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-
     def __str__(self):
         return f"{self.title} | written by {self.author}"
-    
+
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
+        

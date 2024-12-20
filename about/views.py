@@ -16,7 +16,7 @@ def about_me(request):
             # Display a success message to the user
             messages.success(
                 request,
-                'Collaboration request received! I endeavor to respond within 3 working days.'
+                'Collaboration request received!'
             )
     else:
         # If the request is not a POST, render an empty form

@@ -14,6 +14,8 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(Comment)
+
+
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
@@ -22,4 +24,3 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-
