@@ -232,7 +232,7 @@ The project naturally evolved throughout the development process, leading me to 
 
 ## **Testing & Code Validation**
 
---->>>
+Details on code validation can also be found in the [TESTING.md](TESTING.md) file.
 
 
 ## **Tech Stack**
